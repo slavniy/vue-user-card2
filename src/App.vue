@@ -1,5 +1,5 @@
 <template>
-  <UserCardComponent/>
+  <UserCardComponent nickname="larik92" adr="SPb, Russia" fullname="Larionov Viktor Igorevich" phone="82434234" email="larionov@mail.ru"/>
 </template>
 
 <script>
