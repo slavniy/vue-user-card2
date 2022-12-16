@@ -1,5 +1,6 @@
 <template>
   <UserCardComponent nickname="larik92" adr="SPb, Russia" fullname="Larionov Viktor Igorevich" phone="82434234" email="larionov@mail.ru"/>
+  <button @click="getList()">Загрузить данные</button>
 </template>
 
 <script>
@@ -9,6 +10,15 @@ export default {
   name: 'App',
   components: {
     UserCardComponent
+  },
+  methods:{
+    getList(){
+      this.axios.get('https://randomuser.me/api/')
+       .then((response) => {
+         console.log(response.data)
+       })
+
+    }
   }
 }
 </script>
