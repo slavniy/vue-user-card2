@@ -1,6 +1,6 @@
 <template>
-  <UserCardComponent nickname="larik92" adr="SPb, Russia" fullname="Larionov Viktor Igorevich" phone="82434234" email="larionov@mail.ru"/>
-  <button @click="getList()">Загрузить данные</button>
+  <UserCardComponent nickname="larik92" v-bind:adr="adr" v-bind:fullname="name" phone="82434234" v-bind:email="email"/>
+  <button @click="getData()">Загрузить данные</button>
 </template>
 
 <script>
@@ -11,15 +11,24 @@ export default {
   components: {
     UserCardComponent
   },
+  data(){
+    return{
+      email: 'larionov@gmail.com',
+      name:"Виктор",
+      adr: "Saint-Petersburg, Russia"
+    }
+
+  },
   methods:{
-    getList(){
+    getData(){
       this.axios.get('https://randomuser.me/api/')
        .then((response) => {
-         console.log(response.data)
+         this.email = response.data['results'][0]['email']
        })
 
     }
   }
+
 }
 </script>
 
